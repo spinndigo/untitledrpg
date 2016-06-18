@@ -1,5 +1,6 @@
 /*
 Tristan Protzman
+Joseph Spinosa
 
 Base character class for hero, NPCs, enemies, and bosses
 
@@ -7,7 +8,7 @@ Base character class for hero, NPCs, enemies, and bosses
 
 /*
 TODO
-
+	Work on percent modifiers for strength, defense, and agility
 */
 
 
@@ -106,19 +107,16 @@ public class Character{
 	}
 
 	public void modStrength(double percent){
-		percent -= 1;						//accounts for 100% default
 		modStrength += percent;
 		applyModifiers();
 	}
 
 	public void modDefense(double percent){
-		percent -= 1;						//accounts for 100% default
 		modDefense += percent;
 		applyModifiers();
 	}	
 
 	public void modAgility(double percent){
-		percent -= 1;						//accounts for 100% default
 		modAgility += percent;
 		applyModifiers();
 	}
@@ -132,7 +130,7 @@ public class Character{
 		applyModifiers();
 	}
 
-	private void applyModifiers(){						//applys the percent change from modifiers to the base statistics, setting the usable statistics
+	private void applyModifiers(){				//applys the percent change from modifiers to the base statistics, setting the usable statistics
 		strength = baseStrength * modStrength;
 		defense = baseDefense * modDefense;
 		agility = baseAgility * modAgility;
