@@ -5,16 +5,18 @@
 public class Hero{
 
    // fields
-   private int health,maxHP, strength, defense, agility, STRmod, DEFmod, AGILmod, gold; // mods are curses, buffs (%)
+   private int health, maxHP, mana, maxMana, strength, defense, agility, STRmod, DEFmod, AGILmod, gold; // mods are curses, buffs (%)
    private String name;     // name of hero
    private String[] Inventory = new String[4];  // holds items for hero, 5 items max
    
    
    // constructor
-   public Hero(String initName,int initHealth,int initSTR,int initDEF,int initAGIL)
+   public Hero(String initName,int initHealth,int initMana, int initSTR,int initDEF,int initAGIL)
       {this.name = initName;
       this.health = initHealth*100 + 100;
       this.maxHP = health;
+      this.mana = initMana * 50;
+      this.maxMana = mana;
       this.strength = initSTR;
       this.defense = initDEF;
       this.agility = initAGIL;
@@ -26,7 +28,11 @@ public class Hero{
    
    public int getHealth(){
       return this.health;} 
-      
+
+   public int getMana(){
+      return this.mana;
+   }   
+
    public int getSTR(){
       return strength;}
       
@@ -53,6 +59,15 @@ public class Hero{
      else{health = health + change;}
      } 
    
+   public void changeMana(int change){
+      if (mana + change <= 0){
+         mana = 0;
+      }
+      else{
+         mana = mana + change;
+      }
+   }
+
    public void changeGold(int change){
       if(gold + change <= 0){
          gold = 0;}
