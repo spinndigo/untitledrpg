@@ -23,9 +23,9 @@ public class Tester{
 	public static void testModifiers(){
 		Character james = new Character("James", 5, 4, 2, 6, 3, 100);
 		System.out.println(james.getStrength());		//prints the base strenth of james
-		james.modStrength(2); 							//applies a 200% modifier to strength
+		james.modStrength(1); 							//applies a 200% modifier to strength
 		System.out.println(james.getStrength());		//prints the modified strength
-		james.modStrength(.25);							//weakens strength to 25% of prior
+		james.modStrength(-0.5);							//weakens strength to 25% of prior
 		System.out.println(james.getStrength());
 		james.resetModifiers();							//resets modifiers, as if after battle
 		System.out.println(james.getStrength());
