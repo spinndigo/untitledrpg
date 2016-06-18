@@ -1,0 +1,3 @@
+#file types to not sync with git
+
+*.class
