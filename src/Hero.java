@@ -1,111 +1,30 @@
-// Joseph Spinosa
+/*
+Joseph Spinosa
+Tristan Protzman
+
+Extends Character class to create the hero
+
+*/
+
+/*
+TODO
+   Figure out what actually has to go into this code
+   Probably some Hero specific stuff like the having an inventory, talents, and other stuff.
+   It's late and Denny is distracting and I'm tired.  I'll do this later.
+
+*/
+
+class Hero extends Character{
+
+   //possible talents
+   private boolean backstab = false;
+   private boolean heavy = false;
 
 
-
-public class Hero{
-
-   // fields
-   private int health, maxHP, mana, maxMana, strength, defense, agility, STRmod, DEFmod, AGILmod, gold; // mods are curses, buffs (%)
-   private String name;     // name of hero
-   private String[] Inventory = new String[4];  // holds items for hero, 5 items max
-   
-   
-   // constructor
-   public Hero(String initName,int initHealth,int initMana, int initSTR,int initDEF,int initAGIL)
-      {this.name = initName;
-      this.health = initHealth*100 + 100;
-      this.maxHP = health;
-      this.mana = initMana * 50;
-      this.maxMana = mana;
-      this.strength = initSTR;
-      this.defense = initDEF;
-      this.agility = initAGIL;
-      this.STRmod = DEFmod = AGILmod = 0;
-      this.gold = 100;   // start with 100 gold
-      }
-      
-   // accessor methods
-   
-   public int getHealth(){
-      return this.health;} 
-
-   public int getMana(){
-      return this.mana;
-   }   
-
-   public int getSTR(){
-      return strength;}
-      
-   public int getDEF(){
-      return defense;}
-      
-   public int getAGIL(){
-      return agility;}
-      
-   public int getGold(){
-      return gold;}
-      
-   public void getInventory(){
-      for(int i=0; i<=4; i++){
-         System.out.println(Inventory[i]);
-         }
-      }
-      
-   // mutators
-   
-   public void changeHealth(int change){
-      if(health + change <= 0){health = 0;}
-     
-     else{health = health + change;}
-     } 
-   
-   public void changeMana(int change){
-      if (mana + change <= 0){
-         mana = 0;
-      }
-      else{
-         mana = mana + change;
-      }
-   }
-
-   public void changeGold(int change){
-      if(gold + change <= 0){
-         gold = 0;}
-         
-      else{gold = gold + change;}
-   }
-   
-   public void modstr(int str){
-   this.STRmod = STRmod + str;}
-   
-   public void moddef(int def){
-   this.DEFmod = DEFmod + def;}
-   
-   public void modagil(int agil){
-   this.AGILmod = AGILmod + agil;}
-
-   public void RestoreSelf(){
-   STRmod = DEFmod = AGILmod = 0;}
-   
-   public void getItem(String item, int place){
-   if(place < 0 || place > 4){
-      System.out.println("sorry! I can't do that");}
-   
-   else{ Inventory[place] = item;}
-   }
-   
-      
-      
-      
-}      
-
-      
-      
-   
-    
-   
-   
+   public Hero(boolean backstab, boolean heavy){
+   	this.backstab = backstab;
+   	this.heavy = heavy;
+   } 
 
 
-
-   
+}
