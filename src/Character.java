@@ -106,16 +106,19 @@ public class Character{
 	}
 
 	public void modStrength(double percent){
+		percent -= 1;						//accounts for 100% default
 		modStrength += percent;
 		applyModifiers();
 	}
 
 	public void modDefense(double percent){
+		percent -= 1;						//accounts for 100% default
 		modDefense += percent;
 		applyModifiers();
 	}	
 
 	public void modAgility(double percent){
+		percent -= 1;						//accounts for 100% default
 		modAgility += percent;
 		applyModifiers();
 	}
@@ -123,9 +126,9 @@ public class Character{
 
 	//methods
 	public void resetModifiers(){
-		modAgility = 0;
-		modDefense = 0;
-		modStrength = 0;
+		modAgility = 1;
+		modDefense = 1;
+		modStrength = 1;
 		applyModifiers();
 	}
 
