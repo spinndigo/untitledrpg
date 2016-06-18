@@ -30,6 +30,7 @@ public class Character{
 	private String name;
 
 	//Constructer
+	//Requires a string and 6 integers
 	public Character(String initName, int initHealth, int initMana, int initStrength, int initDefense, int initAgility, int initGold){
 		this.name = initName;
 		this.health = (initHealth * 100) + 100; //health scales by 100 HP per point, minimum of 100 HP
