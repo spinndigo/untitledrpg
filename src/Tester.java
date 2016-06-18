@@ -7,7 +7,8 @@ public class Tester{
 
 	public static void main(String[] args){
 		//testHealth();
-		testModifiers();
+		//testModifiers();
+		testItem();
 
 	}
 
@@ -29,5 +30,23 @@ public class Tester{
 		System.out.println(james.getStrength());
 		james.resetModifiers();							//resets modifiers, as if after battle
 		System.out.println(james.getStrength());
+	}
+
+
+	public static void testItem(){
+		Item sword = new Item("Sword", "A great sword", false, 300, 2, 0, -.1);
+		System.out.println(sword.getName());
+		System.out.println(sword.isConsumable());
+		System.out.println(sword.getStrength());
+		
+		Item trinket = new Item("Picture");
+		System.out.println("\n" + trinket.getName());
+		System.out.println(trinket.getDescription());
+		System.out.println(trinket.getDefense());
+
+		Item vase = new Item("Vase", 400);
+		System.out.println("\n" + vase.getName());
+		System.out.println(vase.getCost());
+
 	}
 }
