@@ -9,6 +9,11 @@ public class Tester{
 
 		
 		Character james = new Character("James", 5, 4, 2, 6, 3, 100); 
+		System.out.println(james.getHealth());
+		james.changeHealth(-30);
+		System.out.println(james.getHealth());
+		james.changeHealth(500);
+		System.out.println(james.getHealth());
 
 	}
 }
