@@ -52,7 +52,39 @@ public class Item{
 	}
 
 
+	
 
+	//accessors
+	public String getName(){
+		return name;
+	}
+
+	public String getDescription(){
+		return description;
+	}
+
+	public boolean isConsumable(){
+		return consumable;
+	}
+
+	public int getCost(){
+		return cost;
+	}
+
+	public double getStrength(){
+		return modStrength;
+	}
+
+	public double getDefense(){
+		return modDefense;
+	}
+
+	public double getAgility(){
+		return modAgility;
+	}
+
+	
+	//methods
 	private void setModifiers(double strength, double defense, double agility){
 		this.modStrength = strength;
 		this.modDefense = defense;
