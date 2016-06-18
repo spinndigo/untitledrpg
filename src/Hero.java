@@ -20,7 +20,7 @@ class Hero extends Character{
    private boolean backstab = false;
    private boolean heavy = false;
 
-
+   //constructor
    public Hero(boolean backstab, boolean heavy){
    	this.backstab = backstab;
    	this.heavy = heavy;
