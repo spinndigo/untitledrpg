@@ -15,15 +15,18 @@ public class Character{
 
 	//Character statistics
 	private int health;
-	private int maxHealth;
+	private int maxHealth;		//health cannot exceed this value
 	private int mana;
-	private int maxMana;
-	private int strength;
-	private int defense;
-	private int agility;
-	private double modStrength;		//treated as percentages
-	private double modDefense;
-	private double modAgility;
+	private int maxMana;		//mana cannot exceed this value
+	private int baseStrength;	//base valuse, only changed on creation or level up
+	private int baseDefense;
+	private int baseAgility;
+	private double strength;	//used levels, affected by modifiers
+	private double defense;
+	private double agility;
+	private double modStrength = 1.0;		//treated as percentages
+	private double modDefense = 1.0;
+	private double modAgility = 1.0;
 	private int gold;
 
 	private String name;
@@ -35,9 +38,10 @@ public class Character{
 		this.maxHealth = health;
 		this.mana = initMana * 50;
 		this.maxMana = mana;
-		this.strength = initStrength;
-		this.defense = initDefense;
-		this.agility = initAgility;
+		this.baseStrength = initStrength;
+		this.baseDefense = initDefense;
+		this.baseAgility = initAgility;
+		applyModifiers();
 		this.gold = initGold;
 	}
 
@@ -52,15 +56,15 @@ public class Character{
 		return mana;
 	}
 
-	public int getStrength(){
+	public double getStrength(){
 		return strength;
 	}
 
-	public int getDefense(){
+	public double getDefense(){
 		return defense;
 	}
 
-	public int getAgility(){
+	public double getAgility(){
 		return agility;
 	}
 
@@ -68,6 +72,9 @@ public class Character{
 		return gold;
 	}
 
+	public String getName(){
+		return name;
+	}
 
 
 	//mutators
@@ -100,22 +107,31 @@ public class Character{
 
 	public void modStrength(double percent){
 		modStrength += percent;
+		applyModifiers();
 	}
 
 	public void modDefense(double percent){
 		modDefense += percent;
+		applyModifiers();
 	}	
 
 	public void modAgility(double percent){
 		modAgility += percent;
+		applyModifiers();
 	}
 
 
+	//methods
 	public void resetModifiers(){
 		modAgility = 0;
 		modDefense = 0;
 		modStrength = 0;
+		applyModifiers();
 	}
 
-
+	private void applyModifiers(){						//applys the percent change from modifiers to the base statistics, setting the usable statistics
+		strength = baseStrength * modStrength;
+		defense = baseDefense * modDefense;
+		agility = baseAgility * modAgility;
+	}
 }
