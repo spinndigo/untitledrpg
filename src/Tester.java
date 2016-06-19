@@ -64,12 +64,12 @@ public class Tester{
 		double enemyDefense = combat.rawDef(enemy.getDefense());
 
 		while(hero.getHealth() > 0 && enemy.getHealth() > 0){
-			double heroDamage = combat.calcDamage(heroAttack, enemyDefense);
-			enemy.changeHealth((int)heroDamage * -1);
+			int heroDamage = combat.calcDamage(heroAttack, enemyDefense);
+			enemy.changeHealth(heroDamage * -1);
 			System.out.println("Enemy Health: " + enemy.getHealth() + "\n");
 
-			double enemyDamage = combat.calcDamage(enemyAttack, heroDefense);
-			hero.changeHealth((int)enemyDamage * -1);
+			int enemyDamage = combat.calcDamage(enemyAttack, heroDefense);
+			hero.changeHealth(enemyDamage * -1);
 			System.out.println("Hero Health: " + hero.getHealth() + "\n");
 			
 		}
