@@ -23,25 +23,34 @@ public class Combat{
       return ((defense*5)+s);
    }
    
-   public double finalScore(int adjusted, int gear){  // takes everything into account(gear, buffs)
+   public double finalScore(int adjusted, int gear){  // takes everything into account(gear, buffs) NOT YET IMPLEMENTED
       return ((double)(adjusted + gear));
    }
    
-   public int calcDamage(double finDam, double finDef){  // this method is the final calculation in the process
+   public int calcDamage(double finAtt, double finDef){  // this method is the final calculation in the process
       int result;
       
-      if(finDef >= finDam) result = 0;
+      if(finDef >= finAtt) result = 0;
       
-      else{result = (int)finDam - (int)finDef;}
+      else{result = -(int)finAtt - (int)finDef;}
       
-     return (int)result;
+     return (int)result; // 0 or a negative value, reflecting the change in the targets health
    }
    
    /*
      your luck score is a percentage chance for landing a crit
    */
    
-   public boolean isCrit(int luck){
+   public void performCombat(Character attacker, Character defender) {
+      
+      double offense = attacker.getStrength();
+      double defense = defender.getDefense(); 
+      int damage = calcDamage(rawAtt(offense), rawDef(defense));
+      
+      defender.changeHealth(damage);  // damage is the change in health probably negative in this case
+   }
+   
+   public boolean isCrit(int luck){  // NOT YET IMPLEMENTED
    
    
       if (luck >= rand.nextInt(100))
