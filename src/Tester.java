@@ -56,22 +56,15 @@ public class Tester{
 	public static void testCombat(){
 		Combat combat = new Combat();
 
-		Character hero = new Character("Hero", 5, 0, 5, 3, 2, 40);
-		Character enemy = new Character("Enemy", 5, 0, 5,3, 2, 10);
-		double heroAttack = combat.rawAtt(hero.getStrength());
-		double heroDefense = combat.rawDef(hero.getDefense());
-		double enemyAttack = combat.rawAtt(enemy.getStrength());
-		double enemyDefense = combat.rawDef(enemy.getDefense());
+		Character hero = new Character("Hero", 8, 0, 5, 4, 2, 40);
+		Character enemy = new Character("Enemy", 6, 0, 5,4, 2, 10);
+		
 
 		while(hero.getHealth() > 0 && enemy.getHealth() > 0){
-			int heroDamage = combat.calcDamage(heroAttack, enemyDefense);
-			enemy.changeHealth(heroDamage * -1);
+			combat.performCombat(hero, enemy);
 			System.out.println("Enemy Health: " + enemy.getHealth() + "\n");
-
-			int enemyDamage = combat.calcDamage(enemyAttack, heroDefense);
-			hero.changeHealth(enemyDamage * -1);
+			combat.performCombat(enemy, hero);	
 			System.out.println("Hero Health: " + hero.getHealth() + "\n");
-			
 		}
 
 	}

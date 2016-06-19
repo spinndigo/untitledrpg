@@ -35,7 +35,7 @@ public class Character{
 	//Constructer
 	public Character(String initName, int initHealth, int initMana, int initStrength, int initDefense, int initAgility, int initGold){
 		this.name = initName;
-		this.health = (initHealth * 50) + 100; //health scales by 100 HP per point, minimum of 100 HP
+		this.health = (initHealth * 100) + 100; //health scales by 100 HP per point, minimum of 100 HP
 		this.maxHealth = health;
 		this.mana = initMana * 50;
 		this.maxMana = mana;
