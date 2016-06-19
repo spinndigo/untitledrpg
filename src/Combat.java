@@ -45,6 +45,7 @@ public class Combat{
 			
 			double offense = attacker.getStrength();
 			double defense = defender.getDefense(); 
+			System.out.println("Attacker strength: " + rawAtt(offense) + "\nDefender strength: " + rawDef(defense));
 			int damage = calcDamage(rawAtt(offense), rawDef(defense));
 			
 			defender.changeHealth(damage);  // damage is the change in health probably negative in this case
