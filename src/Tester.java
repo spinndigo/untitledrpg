@@ -6,9 +6,9 @@ Tester class*/
 public class Tester{
 
 	public static void main(String[] args){
-		//testHealth();
-		//testModifiers();
-		testItem();
+		testHealth();
+		testModifiers();
+		//testItem();
 
 	}
 
@@ -19,6 +19,8 @@ public class Tester{
 		System.out.println(james.getHealth());		
 		james.changeHealth(500);					//increases health by more than maximum health
 		System.out.println(james.getHealth());		//makes sure health did not go above maximum
+		james.changeHealth(-9000);
+		System.out.println(james.getHealth());		//makes sure health cannot go below 0
 	}
 
 	public static void testModifiers(){
@@ -26,7 +28,7 @@ public class Tester{
 		System.out.println(james.getStrength());		//prints the base strenth of james
 		james.modStrength(1); 							//applies a 200% modifier to strength
 		System.out.println(james.getStrength());		//prints the modified strength
-		james.modStrength(-0.5);							//weakens strength to 25% of prior
+		james.modStrength(-0.5);						//weakens strength to 25% of prior
 		System.out.println(james.getStrength());
 		james.resetModifiers();							//resets modifiers, as if after battle
 		System.out.println(james.getStrength());

@@ -22,9 +22,9 @@ public class Character{
 	private int baseStrength;	//base valuse, only changed on creation or level up
 	private int baseDefense;
 	private int baseAgility;
-	private double strength;	//used levels, affected by modifiers
-	private double defense;
-	private double agility;
+	private double adjustedStrength;	//used levels, affected by modifiers
+	private double adjustedDefense;
+	private double adjustedAgility;
 	private double modStrength = 1.0;		//treated as percentages
 	private double modDefense = 1.0;
 	private double modAgility = 1.0;
@@ -58,15 +58,15 @@ public class Character{
 	}
 
 	public double getStrength(){
-		return strength;
+		return adjustedStrength;
 	}
 
 	public double getDefense(){
-		return defense;
+		return adjustedDefense;
 	}
 
 	public double getAgility(){
-		return agility;
+		return adjustedAgility;
 	}
 
 	public int getGold(){
@@ -131,8 +131,8 @@ public class Character{
 	}
 
 	private void applyModifiers(){				//applys the percent change from modifiers to the base statistics, setting the usable statistics
-		strength = baseStrength * modStrength;
-		defense = baseDefense * modDefense;
-		agility = baseAgility * modAgility;
+		adjustedStrength = baseStrength * modStrength;
+		adjustedDefense = baseDefense * modDefense;
+		adjustedAgility = baseAgility * modAgility;
 	}
 }
