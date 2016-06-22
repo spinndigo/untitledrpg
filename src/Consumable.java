@@ -6,7 +6,7 @@ Class for all consumable items in the game, ie scrolls and potions
 
 /*
 TODO
-
+	Implement applying items in combat, figure out how to manage how long the effect lasts
 */
 
 public class Consumable extends Item{
@@ -21,7 +21,7 @@ public class Consumable extends Item{
 	//constructor
 	public Consumable(String name, String description, int cost, int duration, double modStrength, double modDefense, double modAgility, boolean useOnEnemy, boolean useOutOfBattle){
 		super(name, description, cost);
-    	this.duration = duration;
+		this.duration = duration;
 		this.modStrength = modStrength;
 		this.modDefense = modDefense;
 		this.modAgility = modAgility;
@@ -61,7 +61,7 @@ public class Consumable extends Item{
 		return duration;
 	}
 
-	public void remove(Character target){
-		target.modAll(modStrength * -1, modDefense * -1, modAgility * -1);
+	public void remove(Character target){						//removes the applied affect
+		target.modAll(modStrength * -1, modDefense * -1,modAgility * -1);   
 	}
 }
