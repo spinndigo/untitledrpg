@@ -12,7 +12,6 @@ TODO
 public class Consumable extends Item{
 
 	private int duration;
-	private int turnsLeft;
 	private double modStrength;
 	private double modDefense;
 	private double modAgility;
@@ -23,7 +22,6 @@ public class Consumable extends Item{
 	public Consumable(String name, String description, int cost, int duration, double modStrength, double modDefense, double modAgility, boolean useOnEnemy, boolean useOutOfBattle){
 		super(name, description, cost);
     	this.duration = duration;
-    	this.turnsLeft = duration;
 		this.modStrength = modStrength;
 		this.modDefense = modDefense;
 		this.modAgility = modAgility;
@@ -58,28 +56,12 @@ public class Consumable extends Item{
 
 
 	//methods
-	public void useOn(Character target){
-
-		if (turnsLeft == duration){
-			target.modAll(modStrength, modDefense, modAgility);
-		}
-
-		else if (turnsLeft > 0){
-			duration --;
-		}
-
-		else{
-			target.modAll(modStrength * -1, modDefense * -1, modAgility * -1);
-		}
+	public int useOn(Character target){							//adjusts the targets statistics and returns the duration of the effect so it can be removed later
+		target.modAll(modStrength, modDefense, modAgility);
+		return duration;
 	}
 
-
-
-
-
-
-
-
-
-
+	public void remove(Character target){
+		target.modAll(modStrength * -1, modDefense * -1, modAgility * -1);
+	}
 }
