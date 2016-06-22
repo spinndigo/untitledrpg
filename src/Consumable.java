@@ -20,10 +20,8 @@ public class Consumable extends Item{
 
 
 	public Consumable(String name, String description, int cost, int duration, double modStrength, double modDefense, double modAgility, boolean useOnEnemy, boolean useOutOfBattle){
-		this.name = name;
-		this.description = description;
-		this.cost = cost;
-		this.duration = duration;
+		super(name, description, cost);
+      this.duration = duration;
 		this.modStrength = modStrength;
 		this.modDefense = modDefense;
 		this.modAgility = modAgility;
