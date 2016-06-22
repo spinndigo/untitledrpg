@@ -106,6 +106,12 @@ public class Character{
 
 	}
 
+	public void modAll(double strength, double defense, double agility){
+		modStrength += strength;
+		modDefense += defense;
+		modAgility += agility;
+	}
+
 	public void modStrength(double percent){
 		modStrength += percent;
 		applyModifiers();
