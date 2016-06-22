@@ -57,7 +57,7 @@ public class Tester{
 		Combat combat = new Combat();
 
 		Character hero = new Character("Hero", 8, 0, 5, 4, 2, 40);
-		Character enemy = new Character("Enemy", 8, 0, 5,4, 2, 10);
+		Character enemy = new Character("Enemy", 7, 0, 6, 4, 2, 10);
 		
 
 		while(hero.getHealth() > 0 && enemy.getHealth() > 0){
@@ -66,10 +66,12 @@ public class Tester{
 			combat.performCombat(enemy, hero);	
 			System.out.println("Hero Health: " + hero.getHealth() + "\n");
 		}
-		if (hero.getHealth() == 0)
+		if (hero.getHealth() == 0  && enemy.getHealth() != 0)
 			System.out.println("Enemy won!");
-		else
+		else if (enemy.getHealth() == 0 && hero.getHealth() != 0)
 			System.out.println("Hero won!");
+		else
+			System.out.println("¯\\_(ツ)_/¯");
 
 	}
 }
